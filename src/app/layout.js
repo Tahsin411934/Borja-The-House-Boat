@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Travel Tanguar",
+  title: "Bojra - The House Boat",
   description: "Your travel companion",
 };
 

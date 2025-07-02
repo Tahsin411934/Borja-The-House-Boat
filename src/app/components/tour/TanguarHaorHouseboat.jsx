@@ -13,7 +13,7 @@ const TanguarHaorHouseboat = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Tanguar Haor Stories title */}
       <h2 className="text-lg md:text-3xl pb-4 pt-[50px] font-semibold text-[#00026E] mb-2 text-center">
-        Tanguar Haor Stories
+        Bojra - The House Boat
       </h2>
       
       {/* Full-width image at the top */}
