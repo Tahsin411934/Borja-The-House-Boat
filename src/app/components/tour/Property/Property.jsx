@@ -23,9 +23,8 @@ export default function Property({ id }) {
   const { searchTerm, setSearchTerm } = useSearch();
   const { currentPage, handlePageChange, setCurrentPage } = usePagination();
   const [data, setData] = useState([]);
-  const [popularData, setPopularData] = useState([]);
   const [price, setPrice] = useState(10000);
-  const [sortOption, setSortOption] = useState("1");
+  const [sortOption, setSortOption] = useState("");
   const [contactNumber, setContactNumber] = useState([]);
   const [loading, setLoading] = useState(true);
   const [initialLoadComplete, setInitialLoadComplete] = useState(false);
@@ -100,27 +99,6 @@ export default function Property({ id }) {
     }
   }, [searchTerm, propertyNames]);
 
-  // Fetch popular property data
-  useEffect(() => {
-    async function fetchPopularData() {
-      if (sortOption === "4") {
-        try {
-          setLoading(true);
-          const response = await fetch(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/api/popularPropertySummary/4`
-          );
-          const result = await response.json();
-          setPopularData(result);
-        } catch (error) {
-          console.error("Error fetching popular property data:", error);
-        } finally {
-          setLoading(false);
-        }
-      }
-    }
-    fetchPopularData();
-  }, [sortOption]);
-
   // Fetch contact number
   useEffect(() => {
     async function fetchData() {
@@ -141,8 +119,9 @@ export default function Property({ id }) {
 
   // Sorting logic
   const sortedData = useMemo(() => {
-    if (sortOption === "4") {
-      return popularData;
+    // Return original data if no sort option is selected
+    if (!sortOption) {
+      return data;
     }
 
     const getMinPrice = (property) => {
@@ -164,7 +143,7 @@ export default function Property({ id }) {
     });
 
     return sorted;
-  }, [data, sortOption, popularData]);
+  }, [data, sortOption]);
 
   // Normalize string for search (handles Bangla and English)
   const normalizeString = (str) => {
@@ -260,8 +239,7 @@ export default function Property({ id }) {
       className={`${roboto.className} bg-white lg:container lg:w-full mx-auto lg:px-4 z-20`}
       ref={propertyListRef}
     >
-      
-      <div className={`mb-8 bg-white ${isSearchFocused ? 'absolute inset-0 h-72  pt-20 px-4 pb-4 z-20' : ''}`}>
+      <div className={`mb-8 bg-white ${isSearchFocused ? 'absolute inset-0 h-72 pt-20 px-4 pb-4 z-20' : ''}`}>
         <div className={`flex flex-col md:flex-row bg-white gap-6 mb-6`}>
           {/* Search Form */}
           <div className={`flex-1 lg:hidden relative`}>
@@ -290,7 +268,6 @@ export default function Property({ id }) {
                   }
                 }}
                 onBlur={() => {
-                  // Use setTimeout to allow click events on suggestions to fire first
                   setTimeout(() => {
                     setIsSearchFocused(false);
                     setShowSuggestions(false);
@@ -312,7 +289,7 @@ export default function Property({ id }) {
 
             {/* Custom Suggestions Dropdown */}
             {showSuggestions && (
-              <div className="absolute z-30  w-full mt-1 text-black bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-auto">
+              <div className="absolute z-30 w-full mt-1 text-black bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-auto">
                 {filteredSuggestions.map((suggestion, index) => (
                   <div
                     key={index}
@@ -322,7 +299,6 @@ export default function Property({ id }) {
                     {suggestion}
                   </div>
                 ))}
-                
               </div>
             )}
           </div>
@@ -337,7 +313,7 @@ export default function Property({ id }) {
                 <FaFilter className="h-5 w-5" />
                 <span className="text-sm font-medium">Price Range</span>
               </div>
-              <div className="flex-1 flex items-center gap-4 ">
+              <div className="flex-1 flex items-center gap-4">
                 <RangeSlider
                   id="default-range"
                   min={0}
@@ -353,7 +329,7 @@ export default function Property({ id }) {
                   }}
                   tooltip="true"
                   tooltipposition="top" 
-                  className="w-full  mt-[-18px] appearance-none h-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full mt-[-18px] appearance-none h-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 <span className="text-sm font-bold text-blue-700 whitespace-nowrap min-w-[90px]">
                   {parseInt(price).toLocaleString()}
@@ -381,10 +357,10 @@ export default function Property({ id }) {
                 }, 0);
               }}
             >
-              <option value="1" disabled hidden>Select option</option>
+              
               <option value="2">Price: Low to High</option>
               <option value="3">Price: High to Low</option>
-              <option value="4">Most Popular</option>
+              <option value="">Most Popular</option>
             </select>
           </div>
         </div>
@@ -423,7 +399,7 @@ export default function Property({ id }) {
               <div key={property.property_id} data-index={index} className="mb-5">
                 {/* Property Card */}
                 <div className="shadow-custom flex flex-col lg:flex-row gap-5 pt-5 pl-5 pr-5 pb-0 rounded bg-white relative">
-                  {/* Discount Badge - positioned absolutely within the card */}
+                  {/* Discount Badge */}
                   {property.discout && (
                     <div className="absolute top-5 right-5 lg:top-5 lg:left-[315px] z-10 w-14 h-14 p-2 text-white text-center font-semibold text-sm bg-red-700 rounded-full flex items-center justify-center">
                       {property.discout}
@@ -622,7 +598,6 @@ export default function Property({ id }) {
           totalPages={totalPages}
         />
       )}
-      
     </div>
   );
 }

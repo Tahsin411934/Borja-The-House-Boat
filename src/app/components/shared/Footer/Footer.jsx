@@ -20,8 +20,13 @@ const Footer = () => {
         fetchData();
       }, []);
     return (
-        <footer className={` ${roboto.className} bg-[#25298c] text-white py-[20px]`}>
-            <div className="footer-wrapper bg-[#25298c]">
+<footer
+  className={`${roboto.className} text-white py-[20px]`}
+  style={{
+    background: 'linear-gradient(to right, #25298c, #045E7B)',
+  }}
+>
+            <div className="footer-wrapper ">
                 <div className="container py-8 w-[85%] mx-auto">
                     <div className="footer-area">
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -33,8 +38,8 @@ const Footer = () => {
                                 <Image 
                                     src="/assets/images/logo.png"
                                     alt="logo" 
-                                    width={180}
-                                    height={100}
+                                    width={150}
+                                    height={80}
                                     className="max-w-full bg-white h-auto mt-2 rounded mx-auto md:mx-0 mb-4"
                                 />
                                   
@@ -121,15 +126,7 @@ const Footer = () => {
             </div>
 
             {/* Footer Bottom Area */}
-            <div className="footer-bottom-area py-4 bg-[#25298c] text-center">
-                <div className="container mx-auto">
-                    <div className="d-flex justify-between gap-4 flex-wrap">
-                        <p className="pera text-white">
-                            © <span className="current-year">{new Date().getFullYear()}</span> Bookme. All rights reserved.
-                        </p>
-                    </div>
-                </div>
-            </div>
+            
         </footer>
     );
 };
