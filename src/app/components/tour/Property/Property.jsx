@@ -107,7 +107,7 @@ export default function Property({ id }) {
         try {
           setLoading(true);
           const response = await fetch(
-            `${process.env.NEXT_PUBLIC_BASE_URL}/api/popularPropertySummary/1`
+            `${process.env.NEXT_PUBLIC_BASE_URL}/api/popularPropertySummary/4`
           );
           const result = await response.json();
           setPopularData(result);
