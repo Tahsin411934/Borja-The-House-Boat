@@ -3,7 +3,7 @@ const propertySummary = async (locationId) => {
     // Get current path (client-side only)
     
     
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/propertySummary/${locationId}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/popularPropertySummary/${locationId}`, {
       cache: "no-store",
     });
     const data = await res.json();

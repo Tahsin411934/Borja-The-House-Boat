@@ -52,7 +52,7 @@ const BookMeHeader = () => {
         setContactNumber(contactResult);
 
         // Fetch property names for search suggestions
-        const locationId = 1;
+        const locationId = 4;
         const propertyResult = await propertySummary(locationId);
         const names = propertyResult.map(property => property.property_name);
         setPropertyNames(names);
