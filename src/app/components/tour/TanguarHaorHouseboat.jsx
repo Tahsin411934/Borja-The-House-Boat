@@ -46,12 +46,6 @@ const TanguarHaorHouseboat = () => {
               <p className="font-semibold mb-1">Bojra Houseboat</p>
               <p className="mb-3">A traditional yet elegant boat offering modern amenities with a vintage design. Perfect for group tours.</p>
               
-              <p className="font-semibold mb-1">Falcon Houseboat</p>
-              <p className="mb-3">Known for its sleek design, spacious rooms, and rooftop lounging area with a stunning view of the haor.</p>
-              
-              <p className="font-semibold mb-1">Sultan Houseboat</p>
-              <p className="mb-3">A premium houseboat combining luxury, safety, and comfort. Ideal for those who want an elite experience.</p>
-              
               <p className="mb-0">
                 These houseboats come equipped with air-conditioned rooms, onboard dining, clean washrooms, and even Wi-Fi in some cases.
               </p>
