@@ -15,7 +15,7 @@ const inter = Inter({
 export const metadata = {
   title: "Bojra - Best Houseboat of Tanguar Haor",
   description:
-    "Explore Tanguar Haor with the best luxury houseboats. Check houseboat prices, book premium haor tours and enjoy a unique travel experience with Bojra.",
+    "Discover Tanguar Haor (টাঙ্গুয়ার হাওর) with the best houseboats like Bojra Houseboat (বজরা হাউজবোট), the best houseboat of Tanguar Haor and best houseboat in Tanguar Haor. Explore luxury houseboats, compare Tanguar haor houseboat price, book Tanguar Haor boat rent, and enjoy premium houseboat tours with Tanguar haor tour package.",
   keywords:
     "Tanguar Haor, Best houseboat of Tanguar Haor, Best houseboat in Tanguar Haor, Luxury Houseboat, Tanguar haor houseboat price, টাঙ্গুয়ার হাওর, Bojra houseboat, Tanguar Haor boat rent, Tanguar haor tour package, Premium houseboat, বজরা হাউজবোট",
   metadataBase: new URL("https://www.bojraboat.com"),
