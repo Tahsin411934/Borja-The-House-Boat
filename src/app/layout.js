@@ -11,9 +11,25 @@ const inter = Inter({
   display: "swap",
 });
 
+// SEO metadata object
 export const metadata = {
-  title: "Bojra - The House Boat",
-  description: "Your travel companion",
+  title: "Bojra - Best Houseboat of Tanguar Haor",
+  description:
+    "Explore Tanguar Haor with the best luxury houseboats. Check houseboat prices, book premium haor tours and enjoy a unique travel experience with Bojra.",
+  keywords:
+    "Tanguar Haor, Best houseboat of Tanguar Haor, Best houseboat in Tanguar Haor, Luxury Houseboat, Tanguar haor houseboat price, টাঙ্গুয়ার হাওর, Bojra houseboat, Tanguar Haor boat rent, Tanguar haor tour package, Premium houseboat, বজরা হাউজবোট",
+  metadataBase: new URL("https://www.bojraboat.com"),
+  robots: "index, follow",
+  openGraph: {
+    title: "Bojra - Best Houseboat of Tanguar Haor",
+    description:
+      "Book the best luxury houseboat for your Tanguar Haor tour. Bojra offers premium experiences with comfort and convenience.Discover Tanguar Haor and enjoy a unique stay on the best houseboat of Tanguar Haor, like the luxurious Bojra houseboat or other premium houseboats, while exploring Tanguar Haor boat rent options, comparing Tanguar haor houseboat price, and booking a full Tanguar haor tour package to experience the true beauty of টাঙ্গুয়ার হাওর aboard a বজরা হাউজবোট, the best houseboat in Tanguar Haor.",
+    url: "https://www.bojraboat.com",
+    siteName: "Bojra Tours",
+    type: "website",
+   
+  },
+  
 };
 
 export default function DashboardLayout({ children }) {
@@ -24,15 +40,7 @@ export default function DashboardLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
 
-        {/* Meta tags for SEO */}
-        <meta
-          name="description"
-          content="Discover Tanguar Haor the best way. Explore best houseboats and tour packages. Make hassle-free booking now!"
-        />
-        <meta
-          name="keywords"
-          content="Tanguar Haor, Best houseboat of Tanguar Haor, Best houseboat in Tanguar Haor, Luxury Houseboat, Tanguar haor houseboat price, টাঙ্গুয়ার হাওর, Bojra houseboat, Falcon houseboat, Sultan houseboat, Tanguar Haor boat rent, Tanguar haor tour package, Premium houseboat, বজরা হাউজবোট"
-        />
+    
 
         {/* Google Tag Manager */}
         <Script
@@ -52,11 +60,11 @@ export default function DashboardLayout({ children }) {
 
       <body className={inter.className}>
         <noscript>
-          <iframe 
+          <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-N5SZNHZP"
-            height="0" 
-            width="0" 
-            style={{display: 'none', visibility: 'hidden'}}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
         <PaginationProvider>
